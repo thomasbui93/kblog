@@ -1,0 +1,92 @@
+@import "../base/settings";
+.menu{
+  font-family: $font-headline;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1999999999;
+  height: $menu-height;
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  background: #fff;
+  box-shadow: 0 0 5px rgba(57,70,78,.2);
+  & .menu__nav{
+    position: relative;
+    height: $menu-height;
+    margin: auto;
+    width: auto;
+    display: table;
+    @media (max-width: $grid-tablet-breakpoint - 1) {
+      display: none;
+    }
+  }
+  &__link{
+    position: relative;
+    height: $menu-height;
+    min-width: 100px;
+    display: inline-block;
+    text-align: center;
+    margin-left: 1em;
+    float:left;
+    & a{
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      line-height: $menu-height;
+    }
+  }
+  &__search{
+    position: absolute;
+    right: 1em;
+    top: 0;
+
+  }
+  &__hamburger{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: $menu-height;
+    width: $menu-height;
+    cursor: pointer;
+    display: none;
+    @media (max-width: $grid-tablet-breakpoint - 1) {
+      display: block;
+    }
+    & img{
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      height: $menu-height - 20px;
+      width: $menu-height - 20px;
+    }
+  }
+  &__vertical{
+    position: absolute;
+    display: none;
+    width: 200px;
+    height: auto;
+    background-color: white;
+    padding: 0;
+    box-shadow:1px 1px 1px 1px rgba(0, 0, 0, 0.1);
+    transform: translateX(-100%);
+    & .vertical__link{
+      position: relative;
+      height: $menu-height;
+      width: 200px;
+      text-align: center;
+      margin: 0 0;
+      & a{
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+        line-height: $menu-height;
+      }
+    }
+    &.is_show{
+      display: block;
+    }
+  }
+}

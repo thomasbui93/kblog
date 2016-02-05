@@ -1,0 +1,66 @@
+@import "../../base/settings";
+@import "banner";
+
+.btn{
+  background: none;
+  border: none;
+  border-radius: 0;
+  position: relative;
+  height: $button-height;
+  margin: 0;
+  min-width: $button-min-width;
+  padding: 0 $button-padding;
+  display: inline-block;
+  overflow: hidden;
+  will-change: box-shadow;
+  transition: box-shadow 0.2s $animation-curve-fast-out-linear-in,
+  background-color 0.2s $animation-curve-default,
+  color 0.2s $animation-curve-default;
+  outline: none;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  line-height: $button-height;
+  vertical-align: middle;
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: capitalize;
+  letter-spacing: 0;
+  font-family: $font-primary;
+
+  &::-moz-focus-inner {
+    border: 0;
+  }
+
+  &--hollow{
+    color: $color-primary;
+    background-color: white;
+    border: 2px solid $color-primary;
+    &:hover{
+      background-color: $color-primary;
+      color: white;
+    }
+  }
+
+  &--primary{
+    background-color: $color-primary;
+    color: white;
+    &:hover, &:focus, &:active{
+      background-color: darken($color-primary, 10%);
+    }
+  }
+  &--danger{
+    background-color: $color-danger;
+    color: white;
+    &:hover, &:focus, &:active{
+      background-color: darken($color-danger, 10%);
+    }
+  }
+  &--warning{
+    background-color: $color-warning;
+    color: white;
+    &:hover, &:focus, &:active{
+      background-color: darken($color-warning, 10%);
+    }
+  }
+}

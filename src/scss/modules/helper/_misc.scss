@@ -1,0 +1,16 @@
+%block{
+  position: relative;
+  display: block;
+}
+.block--center{
+  @extend %block;
+  margin: auto;
+}
+.hidden{
+  display: none !important;
+}
+
+.right{
+  right: 0;
+  float: right;
+}

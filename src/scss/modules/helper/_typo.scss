@@ -1,0 +1,18 @@
+@import "../../base/settings";
+
+.text--theme{
+  color: $color-primary;
+}
+.text--center{
+  text-align: center;
+}
+.text--uppercase{
+  text-transform: uppercase;
+}
+.text--head{
+  font-family: $font-headline;
+}
+
+.text--sm{
+  font-size: 0.9em;
+}

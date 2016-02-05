@@ -1,0 +1,32 @@
+@import "../../base/settings";
+.dashboard {
+  position: relative;
+  width: 100%;
+  min-height: calc(80vh - 55px);
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  &-content {
+    position: relative;
+    width: calc(100% - 250px);
+    min-height: calc(100vh - 55px);
+    background-color: white;
+    overflow: hidden;
+    padding: 1em;
+    display: inline-block;
+    & .banner{
+      position: relative;
+      right: 0;
+    }
+  }
+  &-nav {
+    position: relative;
+    width: 250px;
+    height: 100vh;
+    display: inline-block;
+    background-color: $color-dashboard;
+    border-right: 1px solid $color-dashboard;
+  }
+}
