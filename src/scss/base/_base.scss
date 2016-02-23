@@ -31,14 +31,20 @@ body, h1, h2, h3, h4, h5, h6, p, blockquote, pre, dl, dd, ol, ul, form, fieldset
 h1, h2, h3, h4, h5, h6 {
   font-family: $font-primary;
 }
+body{
+
+}
 .page__wrapper{
   position: relative;
   top: $menu-height;
   left:0;
   width: 100%;
+  min-height: 400px;
   height: auto;
   display: table;
-  background-color: #e7e8e1;
+  background-color: #f4f5f6;
+  margin-bottom: 0;
+  font-weight: 400;
 }
 .sub-title{
   position: relative;

@@ -12,11 +12,12 @@ var webpack = require('webpack'),
     bemLinter = require('postcss-bem-linter');
 
 module.exports ={
+
     target: 'web',
     cache: true,
     entry: {
         module: path.join(srcPath, 'index.js'),
-        common: ['react', 'react-router', 'alt']
+        common: ['react', 'react-router', 'alt', 'react-dom', 'superagent']
     },
     resolve: {
         root: srcPath,
@@ -31,9 +32,6 @@ module.exports ={
     },
     sassLoader: {
         includePaths: [path.resolve(__dirname, "./src/sass")]
-    },
-    postcss: function () {
-        return [autoprefixer, bemLinter, cssnano];
     },
     module: {
         preLoaders: [
@@ -62,11 +60,47 @@ module.exports ={
             inject: true,
             template: 'src/index.html'
         }),
+
+        new webpack.optimize.OccurenceOrderPlugin( true ),
+        new webpack.optimize.UglifyJsPlugin({
+            mangle: {
+                except: ['require', 'export', '$super']
+            },
+            compress: {
+                warnings: false,
+                sequences: true,
+                dead_code: true,
+                conditionals: true,
+                booleans: true,
+                unused: true,
+                if_return: true,
+                join_vars: true,
+                drop_console: true
+            }
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            mangle: {
+                except: ['require', 'export', '$super']
+            },
+            compress: {
+                warnings: false,
+                sequences: true,
+                dead_code: true,
+                conditionals: true,
+                booleans: true,
+                unused: true,
+                if_return: true,
+                join_vars: true,
+                drop_console: true
+            },
+            minimize: true
+        }),
+
+        new webpack.optimize.DedupePlugin(),
         new webpack.NoErrorsPlugin()
     ],
-
-    debug: true,
-    devtool: 'eval-cheap-module-source-map',
+    debug: false,
+    devtool: 'source-map',
     devServer: {
         contentBase: './public',
         historyApiFallback: true

@@ -1,10 +1,14 @@
 
 import React , { Component} from 'react';
 import { DashboardNav } from './DashboardNav';
+import { check } from '../../utils/auth';
 
-export class Dashboard extends Component{
+class Dashboard extends Component{
     constructor(props){
         super(props);
+    }
+    componentDidMount(){
+
     }
     render(){
         return (
@@ -19,3 +23,7 @@ export class Dashboard extends Component{
         )
     }
 }
+Dashboard.contextTypes = {
+    router: React.PropTypes.object.isRequired
+}
+export {Dashboard};

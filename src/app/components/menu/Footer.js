@@ -10,21 +10,23 @@ export class Footer extends Component{
         return(
             <div className="footer container">
                 <div className="col-1-2">
-                    <h2> Bamboo</h2>
                     <h4>Find Me</h4>
                     <div className="social--container">
-                        <div className="social--item text--center">
-                            <i className="icono-facebook"></i>
-                        </div>
-                        <div className="social--item text--center">
-                            <i className="icono-twitter"></i>
-                        </div>
-                        <div className="social--item text--center">
-                            <i className="icono-gplus"></i>
-                        </div>
-                        <div className="social--item text--center">
-                            <i className="icono-youtube"></i>
-                        </div>
+                        <a href="https://www.facebook.com/bui.d.khoa">
+                            <div className="social--item">
+                                <img src="icons/fb.svg"/>
+                            </div>
+                        </a>
+                        <a href="https://twitter.com/CuSol93">
+                            <div className="social--item">
+                                <img src="icons/twitter.svg"/>
+                            </div>
+                        </a>
+                        <a href="http://fi.linkedin.com/in/bdk93">
+                            <div className="social--item">
+                                <img src="icons/linkedin.svg"/>
+                            </div>
+                        </a>
                     </div>
 
                 </div>
@@ -51,7 +53,7 @@ export class Footer extends Component{
                     </div>
                 </div>
                 <div className="footer__copyright">
-                    © 2016 Bamboo. Khoa D. Bui
+                    © Khoa D. Bui
                 </div>
             </div>
         )

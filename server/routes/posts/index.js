@@ -1,9 +1,14 @@
 import { Router } from 'express';
-let router = Router() ;
+import {index, showBriefs, update, create, remove, getOne, getCategoryPost} from './post.controller';
 
-router.get('/',  (req, res)=> {
-    res.json('posts');
-});
+const router = Router() ;
 
+router.get('/',  showBriefs);
+router.get('/brief', showBriefs);
+router.get('/:postId', getOne);
+router.post('/', create);
+router.put('/:postId', update);
+router.delete('/:postId', remove);
+router.get('/category/:categorySlug', getCategoryPost)
 export default router;
 

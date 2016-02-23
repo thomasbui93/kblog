@@ -5,6 +5,7 @@ import classNames from 'classnames';
 
 import { ContentEditable } from '../../components/form/ContentEditable';
 import { ProgressBar } from '../../components/static/ProgressBar';
+import { Error } from '../../components/static/Error';
 
 marked.setOptions({
     renderer: new marked.Renderer(),
@@ -31,6 +32,7 @@ export class MdEditor extends Component{
         this.toMd = this.toMd.bind(this);
 
         this.getMd = this.getMd.bind(this);
+        this.toPureText = this.toPureText.bind(this);
 
         this.state = {
             previewStyle: false,
@@ -46,7 +48,8 @@ export class MdEditor extends Component{
     updateMd(event){
         let rawMd = event.target.value;
         this.setState({
-            mdHtml: marked(this.toMd(rawMd))
+            mdHtml: marked(this.toMd(rawMd)),
+            md: this.toPureText(rawMd)
         });
     }
     html2text(html) {
@@ -64,6 +67,15 @@ export class MdEditor extends Component{
 
         return remadeChunks;
     }
+    toPureText(html){
+        var chunks = html.split('<div>');
+        var remadeChunks = '';
+        chunks.forEach(function (chunk) {
+            remadeChunks += chunk.replace(/<\/div>/g,'') + "\n"
+        }.bind(this));
+
+        return remadeChunks;
+    }
     toggleView(){
         this.setState({
             previewStyle: !this.state.previewStyle
@@ -75,18 +87,11 @@ export class MdEditor extends Component{
     render(){
         return (
             <div className="editor">
-                <div className="editor__control">
-                    <div className={ classNames("banner banner--harmony", { active: this.state.previewStyle})}
-                         onClick={this.toggleView}>
-                        Preview
-                    </div>
-                    <div className={ classNames("banner banner--harmony", { active: !this.state.previewStyle})}
-                         onClick={this.toggleView}>
-                        Code
-                    </div>
-                </div>
                 {
                     this.props.loading ? <ProgressBar/> : null
+                }
+                {
+                    this.props.error !== null ? <Error/> : null
                 }
                 <div className="editor__wrapper" className={ classNames({hidden: this.state.previewStyle}) }>
                     <ContentEditable onChange={this.updateMd}
@@ -94,9 +99,15 @@ export class MdEditor extends Component{
                                      temptHtml={ this.props.tempt }
                                      ref="md"
                     />
+
                 </div>
                 <div className={ classNames("editor__preview",{hidden: !this.state.previewStyle} )}
                      dangerouslySetInnerHTML={{__html: this.state.mdHtml}} >
+                </div>
+                <div className="editor__tag" onClick={this.toggleView}>
+                    {
+                        this.state.previewStyle ? 'PREVIEW': 'CODE'
+                    }
                 </div>
             </div>
         )

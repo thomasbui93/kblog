@@ -3,16 +3,19 @@ import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import serverConfig  from './server/config';
+import compression from 'compression';
 
 import webpack from 'webpack';
 import webpackMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import config from './webpack.config.js';
 
-const isDeveloping = process.env.NODE_ENV !== 'production';
-const port = isDeveloping ? 3000 : process.env.PORT;
-const app = express();
+const isDeveloping = process.argv['NODE_ENV'] !== 'production';
 
+const port = isDeveloping ? 3000 : process.env.PORT;
+let app = express();
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(compression({ threshold: 0 }));
 //mongodb config
 mongoose.connect(serverConfig.database.mongodb.uri, serverConfig.database.mongodb.options);
 
@@ -21,7 +24,6 @@ mongoose.connect(serverConfig.database.mongodb.uri, serverConfig.database.mongod
 import routes from './server/routes';
 routes(app);
 //end config routes
-
 
 if (isDeveloping) {
   const compiler = webpack(config);

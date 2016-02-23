@@ -6,17 +6,18 @@
     content: '';
     left: 0;
     bottom: 0;
-    height: 3px;
+    height: 2px;
     width: 100%;
     opacity: 0;
     background-color: $color-primary;
     transition: opacity 0.2s $animation-curve-fast-out-linear-in;
   }
   &.vertical:before{
-    width: 3px;
+    width: 2px;
     height: 100%;
   }
   &:hover, &.is_active{
+    color: $color-primary;
     &.vertical{
       background-color: #eee;
     }

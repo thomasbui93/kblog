@@ -10,7 +10,7 @@
   height: auto;
   background-color: white;
   padding: 1em;
-  & > input[type="text"]{
+  & > input[type="text"], input[type="password"]{
     position: relative;
     border: none;
     border-radius: 0;
@@ -39,7 +39,7 @@
   height: $input-line;
   display: table;
   border-collapse: separate;
-  & input[type="text"]{
+  & input[type="text"], & .input{
     position: relative;
     top: 5px;
     left: 0;
@@ -71,5 +71,50 @@
     position: absolute;
     width: $input-line - 20px;
     height: $input-line - 20px;
+  }
+}
+.input-box{
+  position: relative;
+  & .input{
+    position: relative;
+    width: 100%;
+    height: auto;
+    line-height: 25px;
+    padding: 0.5em;
+    &:focus{
+      background-color: white;
+    }
+  }
+  & .input:focus ~ .input__label{
+    display: block;
+  }
+  & .input__label{
+    position: absolute;
+    top:0;
+    right: 0;
+    margin: 3px;
+    padding: 1px;
+    width: auto;
+    height: auto;
+    display: none;
+    background-color: $banner-background;
+    color: black;
+    font-weight: 500;
+    &.color{
+      width: 20px;
+      height: 20px;
+    }
+  }
+  & .input__tag{
+    position: absolute;
+    top:0;
+    right: 0;
+    margin: 3px;
+    padding: 5px;
+    width: auto;
+    height: auto;
+    font-size: 0.8em;
+    background-color: $banner-background;
+    text-transform: uppercase;
   }
 }

@@ -1,13 +1,13 @@
 /*------------------------------------*\
     $dimensions
 \*------------------------------------*/
-$menu-height: 55px;
-$setting-width: 55px;
+$menu-height: 50px;
+$setting-width: 50px;
 /*------------------------------------*\
     $font
 \*------------------------------------*/
 $font-headline: Lato,"Helvetica Neue",Arial,Verdana,Tahoma,"Lucida Sans",FreeSans,"Lucida Sans Unicode","Luxi Sans",sans-serif;;
-$font-primary:   'Merriweather', serif;
+$font-primary:  'Roboto',Arial,Helvetica,sans-serif;;
 
 /*------------------------------------*\
     $color
@@ -20,7 +20,7 @@ $font-primary:   'Merriweather', serif;
 $button-height: 45px;
 $button-min-width: 64px !default;
 $button-height: 36px !default;
-$button-padding: 16px !default;
+$button-padding: 9px 20px !default;
 $button-margin: 4px !default;
 
 $banner-height : 30px;

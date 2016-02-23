@@ -3,7 +3,6 @@
 @import "~normalize.css/normalize.css";
 
 @import "base/base";
-@import "vendor/icono.min";
 @import "vendor/highlight";
 
 @import "modules/buttons/base";
@@ -13,7 +12,10 @@
 @import "modules/helper/main";
 @import "layout/main";
 @import "modules/footer";
+@import "modules/images/main";
 
 @import "modules/menu";
 @import "modules/news/main";
 @import "modules/dashboard/main";
+@import "modules/articles/main";
+@import "modules/about";
