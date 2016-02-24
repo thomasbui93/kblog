@@ -5,10 +5,7 @@ import bodyParser from 'body-parser';
 import serverConfig  from './server/config';
 import compression from 'compression';
 
-import webpack from 'webpack';
-import webpackMiddleware from 'webpack-dev-middleware';
-import webpackHotMiddleware from 'webpack-hot-middleware';
-import config from './webpack.config.js';
+
 
 const isDeveloping = process.argv['NODE_ENV'] !== 'production';
 
@@ -26,6 +23,10 @@ routes(app);
 //end config routes
 
 if (isDeveloping) {
+  let webpack =require('webpack');
+  let webpackMiddleware = require('webpack-dev-middleware');
+  let webpackHotMiddleware= require('webpack-hot-middleware');
+  let config =require('./webpack.config.js');
   const compiler = webpack(config);
   const middleware = webpackMiddleware(compiler, {
     publicPath: config.output.publicPath,
