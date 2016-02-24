@@ -4,10 +4,12 @@
   "description": "A minimal blog platform ",
   "main": "index.js",
   "scripts": {
-    "start": "./node_modules/.bin/babel-node index",
+    "start": "./node_modules/.bin/babel-node ./server/index",
     "lint": "eslint . --ext .js --ext .jsx",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "production": "./node_modules/.bin/babel-node index --NODE_ENV=production",
+    "clean": "rm -rf build",
+    "transform": "babel -d ./build ./server -s",
+    "production": "node ./build/index.js --production 80",
     "build": "webpack  --watch --progress --profile --colors --optimize-occurence-order --optimize-dedupe"
   },
   "repository": {
