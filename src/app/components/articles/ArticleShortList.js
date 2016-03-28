@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {ArticleShort} from './ArticleShort';
 import {ReaderHelper} from './ReaderHelper';
 import DocumentMeta from 'react-document-meta';
-
+import {ZeroPost} from '../../components/static/ZeroPost';
 export class ArticleShortList extends Component {
     constructor(props) {
         super(props);
@@ -13,6 +13,16 @@ export class ArticleShortList extends Component {
         }
     }
     render() {
+        if(this.props.articleList.length === 0){
+            return (
+                <div className="layout-container">
+                    <div className="layout--main">
+                        <ZeroPost/>
+                    </div>
+                    <ReaderHelper/>
+                </div>
+            )
+        }
         const shortList = this.props.articleList.map((article)=>{
             return (
                 <ArticleShort article={article} key={article._id}/>

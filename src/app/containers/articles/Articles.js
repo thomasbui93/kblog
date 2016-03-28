@@ -37,9 +37,6 @@ export class Articles extends Component {
         if(this.state.loading){
             return <Loading/>
         }
-        if(this.state.articles.length === 0){
-            return <NotFound/>
-        }
         const meta =  {
             title: 'All Articles',
             description: 'Articles about web development',

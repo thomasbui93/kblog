@@ -40,9 +40,6 @@ export class ArticlesCategory extends Component {
         if (this.state.loading) {
             return <Loading/>
         }
-        if (this.state.articles.length === 0) {
-            return <NotFound/>;
-        }
         return (
             <div>
                 <ArticleShortList articleList={this.state.articles}/>
